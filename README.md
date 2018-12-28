@@ -2,9 +2,9 @@
 
 This reposity is a guidance for finetuning bert model.
 
-- I have modified `modeling.py` to adjust to the need of different tasks.Mainly,I added another pooler layer for sequence output.
-- I have used `tf.estimator.Estimator` instead of `tf.contrib.tpu.TPUEstimator`.
-- I overwrite `DataProcessor` for different tasks.
+- modify `modeling.py` to adjust to the need of different tasks.Mainly,I added another pooler layer for sequence output.
+- use `tf.estimator.Estimator` instead of `tf.contrib.tpu.TPUEstimator`.
+- overwrite `DataProcessor` for different tasks.
 
 ## Classification
 
