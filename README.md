@@ -1,9 +1,14 @@
 # FINE-TUNING BERT MODEL 
-`This reposity is a guidance for finetuning bert model.`
+
+This reposity is a guidance for finetuning bert model.
+
+- I have modified `modeling.py` to adjust to the need of different tasks.Mainly,I added another pooler layer for sequence output.
+- I have used `tf.estimator.Estimator` instead of `tf.contrib.tpu.TPUEstimator`.
+- I overwrite `DataProcessor` for different tasks.
 
 ## Classification
 
-For classificaiton task, I use `[CLS]` as the aggregate representation of the sentence and feed it into a clssification 
+For classificaiton task, we use `[CLS]` as the aggregate representation of the sentence and feed it into a clssification 
 layer(softmax layer) where the only new parameters from during fine-tuning.
 `run_classifier.py` is the main script to use for classification task. In this script,I implement two kinds of data-process, 
 binary classificaiton and multiclass classificaition.
@@ -49,4 +54,6 @@ python run_ner.py\
     --num_train_epochs=3.0 \
     --output_dir=/tmp/ner_output/
 ``` 
+Tips: you can merge these two scripts to one.you should pay attenion to loss function and code structure.
+
 I have got  better performance in my tasks by fine-tuning the BERT model.So it is worth trying!
